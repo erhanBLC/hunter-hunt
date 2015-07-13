@@ -1,0 +1,27 @@
+<div id="ranking" class="row">
+    <div class="col-8 left-2 right-2">
+        <h1 style="text-transform:uppercase;">Ranking</h1>
+
+        <div id="order_by">
+            <button ng-class="selectedAverage? 'active' : 'desactive'" ng-click="average()">Average <div style="display:inline-block;font-size:8px;">(votes/hunts)</div></button>
+            <button ng-class="selectedVotes? 'active' : 'desactive'" ng-click="votes()">Votes</button>
+            <button ng-class="selectedHunts? 'active' : 'desactive'" ng-click="posts()">Hunts</button>
+            {{$index}}
+        </div>
+
+        <ul id="hunters">
+
+            <li class="hunter outer" ng-repeat="hunter in hunters" ng-animate="'animate'" ng-class="{block:$index==0}">
+                <div class="inner">
+                    <a href="/{{hunter.value[0]}}">
+                    <div class="picture" style="background-image:url({{hunter.value[1]}})">
+                        <div ng-class="{gold:$index==0,silver:$index==1,bronze:$index==2}" class="tag">{{format(hunter.key)}}</div>
+                    </div>
+                    <div class="username">@{{hunter.value[0]}}</div>
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>

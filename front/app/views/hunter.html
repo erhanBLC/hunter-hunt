@@ -1,0 +1,51 @@
+<div id="hunter" class="row">
+    <div class="col-6 right-3 left-3">
+        <div class="picture picture-hunter" style="background-image:url({{hunter.image_url['120px']}})"></div>
+        <h2>{{hunter.name}}</h2>
+        <a class="username" href="https://producthunt.com/@{{hunter.username}}" target="_blank">@{{hunter.username}}</a>
+        <i>{{hunter.headline}}</i>
+
+        <a class="want hunter-box" target="_blank" href="https://twitter.com/intent/tweet?text=Hey%20%40{{hunter.username}}%20I%20want%20you%20to%20hunt%20my%20project%20using&url=http%3A%2F%2Fhunterhunt.co"><i class="fa fa-thumbs-up"></i> I want you</a>
+
+        <table id="count" class="hunter-box">
+          <tr>
+            <td><i class="fa fa-star"></i> Total Hunts</td>
+            <td class="nb">{{ hunter.posts_count }}</td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-caret-square-o-up"></i> Total upvotes</td>
+            <td class="nb">{{ hunter.votes_count }}</td>
+          </tr>
+          <tr>
+              <td><i class="fa fa-tachometer"></i> Average per hunt</td>
+              <td class="nb">{{ hunter.average }}</td>
+            </tr>
+        </table>
+
+        <div id="words" class="hunter-box">
+            <h3>{{words.length}} top words</h3>
+            <ul>
+                <li ng-repeat="word in words">
+                    <a class="word" href="/search/{{word.word}}"><i class="fa fa-tag"></i> {{word.word}} ({{word.nb}})</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="posts" class="hunter-box">
+            <h3>{{hunts.length}} latest hunts</h3>
+            <ul>
+                <li ng-repeat="hunt in hunts">
+                    <a href="{{hunt.discussion_url}}" target="_blank"><span><i class="fa fa-caret-up"></i> {{ hunt.votes_count }}</span> {{ hunt.name }}</a>
+                    <div class="tagline">{{ hunt.tagline }}</div>
+                </li>
+            </ul>
+
+            <a class="see-more" href="https://producthunt.com/@{{hunter.username}}/posts" target="_blank"><i class="fa fa-angle-down"></i> See more</a>
+        </div>
+
+        <div class="update">
+            <i class="fa fa-clock-o"></i> Last update: {{hunter.last_update}}
+        </div>
+
+    </div>
+</div>

@@ -1,64 +1,52 @@
 <!doctype html>
-<html>
+<html ng-app="HunterHuntApp">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <base href="/">
+    <title>HunterHunt - Hunt your next hunter thanks to data.</title>
+    <meta name="description" content="HunterHunt is a website to get datas about Hunters">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/prid.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="HunterHuntApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  <body>
+      <ul class="nav navbar-nav navbar-right fixed">
+          <li><a href="/"><i class="fa fa-crosshairs"></i> Home</a></li>
+          <li><a href="/about"><i class="fa fa-comment"></i> About</a></li>
+          <li><a href="/ranking"><i class="fa fa-trophy"></i> Ranking</a></li>
+          <li><a href="/tips"><i class="fa fa-life-ring"></i> Tips</a></li>
+          <li><a target="_blank" href="https://twitter.com/intent/tweet?text=Own%20a%20great%20product%20and%20need%20a%20hunter%20to%20feature%20it?%20%40_HunterHunt%20lets%20you%20hunt%20Hunters!&url=http%3A%2F%2Fwww.hunterhunt.co"><i class="fa fa-heart"></i> Tweet it!</a></li>
+      </ul>
 
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <a class="navbar-brand" href="#/">Hunter Hunt</a>
-          </div>
-
-          <div class="collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="view-container container">
+    <div ng-view class="view-frame"></div>
     </div>
 
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
+    <footer>
+        <a href="https://twitter.com/_HunterHunt" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a href="mailto:hello@hunterhunt.co?subject=HunterHunt%20is%20awesome%20!"><i class="fa fa-envelope"></i> </a>
+        <a href="http://github.com/clemkn/hunter-hunt" target="_blank"><i class="fa fa-github"></i></a>
+    </footer>
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
        }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
+       ga('create', 'UA-65045299-1');
        ga('send', 'pageview');
     </script>
 
@@ -69,12 +57,18 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/sprintf.js/src/sprintf.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/app-constants.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/hunter.js"></script>
+        <script src="scripts/controllers/search.js"></script>
+        <script src="scripts/controllers/ranking.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
 </body>

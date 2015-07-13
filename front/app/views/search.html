@@ -26,10 +26,28 @@
     </div>
 </div>
 
-<div id="words" class="hunter-box">
-    <ul>
-        <li ng-repeat="word in words">
-            <a class="word" href="/search/{{word}}"><i class="fa fa-tag"></i> {{word}}</a>
-        </li>
-    </ul>
+    <div class="row" ng-hide="!status">
+        <div id="alert" class="col-4 left-4 right-4">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            {{ status }}
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-8 left-2 right-2" ng-hide="!hide">
+        <ul id="hunters">
+
+            <li class="hunter outer" ng-repeat="hunter in hunters" ng-animate="'animate'">
+                <div class="inner">
+                    <a href="/{{hunter.doc.username}}">
+                    <div class="picture" style="background-image:url({{hunter.doc.image_url['120px']}})">
+                        <div class="tag">{{hunter.value}}</div>
+                    </div>
+                    <div class="username">@{{hunter.doc.username}}</div>
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+    </div>
 </div>
