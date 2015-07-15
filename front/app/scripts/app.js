@@ -8,13 +8,13 @@ angular
     'ngResource',
     'ngRoute',
     'HunterHuntConstants',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    '720kb.tooltips'
   ])
 
 .config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider) {
 
     cfpLoadingBarProvider.includeSpinner = false;
-    cfpLoadingBarProvider.latencyThreshold = 50;
 
     $routeProvider
         .when('/', {

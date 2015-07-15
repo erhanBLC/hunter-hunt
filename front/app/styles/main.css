@@ -112,7 +112,32 @@ header div{
     box-sizing: border-box;
 }
 
-ul#hunters{
+ul#top-hunters{
+    text-align: center;
+    padding:20px 0;
+    margin:50px auto 0 auto;
+    max-width:500px;
+    display:block;
+}
+
+ul#top-hunters h2{
+    margin-top:25px;
+    font-size:15px;
+    text-transform: uppercase;
+    color:grey;
+}
+
+ul#top-hunters li{
+    display: inline-block;
+    padding:25px 20px;
+    box-sizing: border-box;
+}
+
+ul#top-hunters li>a{
+    text-decoration: none;
+}
+
+ul#hunters, ul#top-hunters{
     text-align:center;
     padding:0;
 }
@@ -199,6 +224,7 @@ ul#hunters li{
 #words { margin-top: 40px; text-align: center; max-width: 550px; margin:40px auto 0 auto;}
 #words ul{ margin:0; padding:0; }
 #words li > a{text-decoration: none !important;}
+#words h3{ text-transform: uppercase; color:#CCCCCC; font-size:15px; }
 
 a.want{
     display: block;
@@ -298,7 +324,7 @@ a.want:hover{
     margin:0 5px;
     padding:10px 0;
     transition:0.2 ease all;
-    width:170px;
+    width:130px;
     margin-bottom:10px;
 }
 

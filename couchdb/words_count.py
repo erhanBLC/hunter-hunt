@@ -5,8 +5,8 @@ import nltk, string
 def file_to_list(path):
 	return [line.rstrip('\n') for line in open(path)]
 
-def words_count(taglines):	
-	
+def words_count(taglines):
+
 	stop_words = set(nltk.corpus.stopwords.words('english')) | {"n't", "..."} | set(string.punctuation)
 	tokenization_pattern = r'''(?x)
 		([A-Z]\.)+
@@ -15,12 +15,12 @@ def words_count(taglines):
 		| \w+[\x90-\xff]
 		| [][.,;"'?():-_`]
 		'''
-		
+
 	text = ' '.join(taglines)
 	text = text.replace('(','').replace(')','').replace('+','').replace('/',' ').replace("'",' ').lower()
-	
+
 	tokens = nltk.tokenize.regexp.regexp_tokenize(text, tokenization_pattern)
-	tokens = nltk.pos_tag(tokens) 
+	tokens = nltk.pos_tag(tokens)
 	tokens = [s for s in tokens if s[1][0]=='V' or s[1][:2]=='NN' or s[1][:2]=='JJ']
 
 	wordnet_lemmatizer = nltk.stem.WordNetLemmatizer()
@@ -28,16 +28,16 @@ def words_count(taglines):
 	word_counter = Counter()
 
 	not_change = ['ios']
-	change = {'apps': 'app','yoapp': 'yo'}
+	change = {'apps': 'app','yoapp': 'yo', 'ebooks': 'ebook'}
 
 	for token in tokens:
 		token = token[0]
 		if token in stop_words or token.startswith("'") or len(set(token)) < 2 or token in irrelevant_words:
 			continue
-			
+
 		if token in not_change:
 			pass
-			
+
 		else:
 			if len(token) == 3:
 				token_test = wordnet_lemmatizer.lemmatize(token)

@@ -34,5 +34,4 @@ angular
             }
             $scope.words = random;
         });
-
 });

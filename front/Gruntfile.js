@@ -84,7 +84,7 @@ module.exports = function (grunt) {
             return [
               connect.static('.tmp'),
               modRewrite([
-                '!/logo.svg|/favicon.ico|\\.html|\\.js|\\.css|\\woff|\\ttf|\\swf$ /index.html'
+                '!/logo.svg|/images/favicon.ico|\\.html|\\.js|\\.css|\\woff|\\ttf|\\swf$ /index.html'
               ]),
               connect().use(
                 '/bower_components',
@@ -324,7 +324,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'frontApp',
+          module: 'HunterHuntApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },

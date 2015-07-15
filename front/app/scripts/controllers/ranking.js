@@ -6,7 +6,7 @@ angular
 
 
 .controller('RankingCtrl', function($scope, SERVER, $http, $location){
-
+    $scope.Math = Math;
     $scope.format = function formatk(num) { return num > 999 ? (num/1000).toFixed(0) + 'k' : num };
 
     function order_by(view){
@@ -33,7 +33,10 @@ angular
         }).success(function(data){
             var rows = data.rows
             if(rows.length == 0) $location.path('/');
-            else $scope.hunters = rows;
+            else {
+                $scope.top_hunters = rows.slice(0,3);
+                $scope.hunters = rows.slice(3,rows.length);
+            }
         }).error(function(err){
             $location.path('/');
         });

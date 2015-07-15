@@ -1,6 +1,6 @@
 # Config file
 # >> CouchDB
-COUCHDB_SERVER = "127.0.0.1"
+COUCHDB_SERVER = "http://127.0.0.1:5984"
 COUCHDB_USER = ""
 COUCHDB_PASSWORD = ""
 

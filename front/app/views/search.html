@@ -26,24 +26,45 @@
     </div>
 </div>
 
-    <div class="row" ng-hide="!status">
+    <div class="row" ng-hide="!status" style="text-align:center;">
         <div id="alert" class="col-4 left-4 right-4">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             {{ status }}
         </div>
+        <img style="margin-top:20px;text-align:center;" align="center" ng-hide="!image" ng-src="{{image}}"/>
+    </div>
+
+    <div id="words" ng-hide="!words" class="hunter-box">
+        <h3>Try these words</h3>
+        <ul>
+            <li ng-repeat="word in words">
+                <a class="word" href="/search/{{word}}"><i class="fa fa-tag"></i> {{word}}</a>
+            </li>
+        </ul>
     </div>
 
 <div class="row">
     <div class="col-8 left-2 right-2" ng-hide="!hide">
-        <ul id="hunters">
 
+        <ul id="top-hunters" ng-if="top_hunters">
+            <h2>Top hunters for "{{word}}"</h2>
+            <li class="hunter" ng-repeat="top_hunter in top_hunters">
+                <a href="/{{top_hunter.value.username}}">
+                <div class="picture" style="background-image:url({{top_hunter.value.image_url}})">
+                    <div ng-class="{gold:$index==0,silver:$index==1,bronze:$index==2}" class="tag" tooltips="" tooltip-title="{{top_hunter.key[1]}} occurences" tooltip-side="bottom">{{top_hunter.key[1]}}</div>
+                </div>
+                <div class="username">@{{top_hunter.value.username}}</div>
+                </a>
+            </li>
+        </ul>
+        <ul id="hunters">
             <li class="hunter outer" ng-repeat="hunter in hunters" ng-animate="'animate'">
                 <div class="inner">
-                    <a href="/{{hunter.doc.username}}">
-                    <div class="picture" style="background-image:url({{hunter.doc.image_url['120px']}})">
-                        <div class="tag">{{hunter.value}}</div>
+                    <a href="/{{hunter.value.username}}">
+                    <div class="picture" style="background-image:url({{hunter.value.image_url}})">
+                        <div class="tag" tooltips="" tooltip-title="{{hunter.key[1]}} occurences" tooltip-side="left">{{hunter.key[1]}}</div>
                     </div>
-                    <div class="username">@{{hunter.doc.username}}</div>
+                    <div class="username">@{{hunter.value.username}}</div>
                     </a>
                 </div>
             </li>
